@@ -1,0 +1,32 @@
+<button mat-button (click)= 'save()'>Save and back to Files</button>
+
+<p>Edit your questions and create new ones:</p>
+
+<h2>{{nameForm.value.name}}</h2>
+
+<form [formGroup]="nameForm">
+  <mat-form-field class="surveyName">
+    <input matInput placeholder = 'Insert Answer' name='name' formControlName="name">
+  </mat-form-field>
+    <br/>
+  <mat-form-field class="surveyName">
+    <input class="surveyName" matInput placeholder = 'Insert author name' name='author' formControlName="author">
+  </mat-form-field>
+</form>
+
+<form *ngFor='let form of questionForms; let j = index' [formGroup]="form">
+    <textarea matInput placeholder='Insert Question' name='name' formControlName="name"></textarea>
+  <br/>
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button class="answer-content" value="0"><mat-form-field><input matInput placeholder = 'Insert Answer' name='a0' formControlName="a0"></mat-form-field></mat-radio-button><br/>
+        <mat-radio-button class="answer-content" value="1"><mat-form-field><input matInput placeholder = 'Insert Answer' name='a1' formControlName="a1"></mat-form-field></mat-radio-button><br/>
+        <mat-radio-button class="answer-content" value="2"><mat-form-field><input matInput placeholder = 'Insert Answer' name='a2' formControlName="a2"></mat-form-field></mat-radio-button><br/>
+        <mat-radio-button class="answer-content" value="3"><mat-form-field><input matInput placeholder = 'Insert Answer' name='a3' formControlName="a3"></mat-form-field></mat-radio-button>
+    </mat-radio-group>
+  <br/>
+  <button mat-button (click)='deleteQuestion(j)'>Delete</button>
+  <hr style='width: 70%'>
+</form>
+  <br/>
+  <button mat-button (click)='addQuestion()'>Add question to survey</button>
+

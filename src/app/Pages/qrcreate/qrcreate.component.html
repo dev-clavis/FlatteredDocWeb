@@ -1,0 +1,4 @@
+<div *ngIf="id">
+    <img [src]="'http://172.16.0.1:8001/qr_code.php?id=' + id">
+</div>
+<p><button mat-button [routerLink]="['/surveylist']">Back to Files</button></p>

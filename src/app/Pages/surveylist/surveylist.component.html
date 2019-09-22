@@ -1,0 +1,11 @@
+<button mat-button [routerLink]="['/home']">Home</button>
+<p>Here you can find your surveys and build new ones:</p>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let Survey of surveyService.getSurveyList(); let i=index">{{Survey.name}}
+    <p><button mat-button [routerLink]="['/edit', i]">Edit</button></p><p><button mat-button [routerLink]="['/qrcreate', Survey.id]">Show QR-Tag</button></p><p><button mat-button (click)="removeSurvey(i)">Delete</button></p><p><button mat-button [routerLink]="['/results', Survey.id]">Results</button></p>
+    <br/>
+    <hr style='width: 20%;'>
+  </mat-list-item>
+</mat-list>
+
+<p><button mat-button (click)="addSurvey()">Add Survey</button></p>

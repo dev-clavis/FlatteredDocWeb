@@ -1,0 +1,19 @@
+<button mat-button [routerLink]="['/surveylist']">Back to Files</button>
+
+<p>Your results:</p>
+<div *ngIf="results">
+
+  <u><h1>{{results.name}}</h1></u>
+  <h4>{{results.author}}</h4>
+
+
+  <div *ngFor='let question of results.questions; let j = index'>
+    <u>{{question.name}}</u>
+    <br/>
+    <div *ngFor='let answer of question.ans' class="answers">
+    {{answer.optionName}} -- {{answer.amount}} Personen<mat-progress-bar style='width: 50%' mode="determinate" [value]="answer.amount / question.count * 100"></mat-progress-bar>
+
+    </div>
+<hr>
+  </div>
+</div>
