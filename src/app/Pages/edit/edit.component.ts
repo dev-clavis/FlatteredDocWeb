@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
         author: new FormControl(this.survey.author)
       });
 
-      if(this.survey.questions.length > 0) {
+      if(this.survey.questions && this.survey.questions.length > 0) {
         for (const question of this.survey.questions) {
           this.questionForms.push(new FormGroup({
             name: new FormControl(question.name),

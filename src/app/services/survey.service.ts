@@ -37,6 +37,7 @@ export class SurveyService {
   addQuestionsToSurvey(index: number, questions: IQuestion[]): void {
     const survey = this.surveyList[index];
     survey.questions = questions;
+    console.log(survey);
     this.httpService.addSurvey(survey).subscribe(data => {
       survey.id = data.id;
     });
